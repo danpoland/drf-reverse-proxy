@@ -1,0 +1,24 @@
+language: python
+
+sudo: false
+
+python:
+  - "2.7"
+  - "3.5"
+
+env:
+   - DJANGO_VERSION=1.10.2 DRF_VERSION=3.3.3
+   - DJANGO_VERSION=1.10.2 DRF_VERSION=3.4.7
+   - DJANGO_VERSION=1.10.2 DRF_VERSION=3.5.1
+   - DJANGO_VERSION=1.9.10 DRF_VERSION=3.3.3
+   - DJANGO_VERSION=1.9.10 DRF_VERSION=3.4.7
+   - DJANGO_VERSION=1.9.10 DRF_VERSION=3.5.1
+
+install:
+  - pip install --upgrade setuptools
+  - pip install --upgrade pip
+  - pip install coveralls flake8
+  - pip install django==${DJANGO_VERSION} djangorestframework==${DRF_VERSION}
+
+script:
+    - coverage run --branch --source=drfreverseproxy setup.py test

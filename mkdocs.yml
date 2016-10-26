@@ -1,0 +1,4 @@
+site_name: drf-reverse-proxy
+site_description: Reverse proxy view for Django Rest Framework
+repo_url: https://github.com/danpoland/drf-reverse-proxy
+site_dir: html
