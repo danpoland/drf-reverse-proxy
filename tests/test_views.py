@@ -4,11 +4,10 @@ from mock import patch
 import os
 
 from django.test import TestCase, RequestFactory
-from django.utils.six.moves.urllib.parse import ParseResult
+from six.moves.urllib.parse import ParseResult
 
 from drfreverseproxy.exceptions import InvalidUpstream
 from drfreverseproxy.views import ProxyView
-
 from .utils import get_urlopen_mock
 
 
@@ -134,8 +133,8 @@ class ViewTest(TestCase):
             upstream = 'http://example.com'
 
             def get_proxy_request_headers(self, request):
-                headers = super(CustomProxyView, self).\
-                                get_proxy_request_headers(request)
+                headers = super(CustomProxyView, self). \
+                    get_proxy_request_headers(request)
                 headers['DNT'] = 1
                 return headers
 

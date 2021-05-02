@@ -17,3 +17,4 @@ mkdocs==0.11.1
 
 # Application dependencies
 urllib3==1.22
+six~=1.15.0

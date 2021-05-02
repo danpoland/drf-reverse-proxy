@@ -4,7 +4,7 @@ import mimetypes
 
 import urllib3
 
-from django.utils.six.moves.urllib.parse import urlparse, urlencode, quote_plus
+from six.moves.urllib.parse import urlparse, urlencode, quote_plus
 from django.shortcuts import redirect
 
 from rest_framework.views import APIView
