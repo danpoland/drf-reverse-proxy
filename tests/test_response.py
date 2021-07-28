@@ -78,7 +78,10 @@ class ResponseTest(TestCase):
         with patch(URLOPEN, urlopen_mock):
             response = CustomProxyView.as_view()(request, path=path)
 
-        response_headers = response._headers
+        if hasattr(response, 'headers'):
+            response_headers = response.headers
+        else:
+            response_headers = response._headers
 
         for header in response_headers:
             self.assertFalse(is_hop_by_hop(header))
@@ -122,7 +125,10 @@ class ResponseTest(TestCase):
         with patch(URLOPEN, urlopen_mock):
             response = CustomProxyView.as_view()(request, path=path)
 
-        response_headers = response._headers
+        if hasattr(response, 'headers'):
+            response_headers = response.headers
+        else:
+            response_headers = response._headers
         self.assertNotIn('set-cookie', response_headers)
 
     def test_set_cookie_is_used_by_httpproxy_response(self):
