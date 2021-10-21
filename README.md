@@ -48,7 +48,7 @@ Example
 Create a custom reverse proxy view:
 
 ```python
-from drfreverseproxy import ProxyView
+from drfreverseproxy.views import ProxyView
 
 class TestProxyView(ProxyView):
    upstream = 'http://example.com'
@@ -57,7 +57,7 @@ class TestProxyView(ProxyView):
 Or just use the default:
 
 ```python
-from drfreverseproxy import ProxyView
+from drfreverseproxy.views import ProxyView
 
 urlpatterns = [
    url(r'^(?P<path>.*)$', ProxyView.as_view(upstream='http://example.com/')),
